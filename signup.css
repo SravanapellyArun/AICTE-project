@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background: url(/static/assets/railway-track-construction-service.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.container{
+    background: transparent;
+    border: 2px solid rgba(225, 225, 225, 0.2);
+    color: #f5f7fa;
+    width: 420px;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius:10px ;
+    padding: 30px 20px;
+    
+}
+
+.container h1{
+    margin-bottom: 36px;
+
+    text-align: center;
+}
+
+.container .form-group{
+    margin:30px 5px;
+    width: 100%;
+    height: 50px;
+    
+    position: relative;
+}
+
+.form-group input{
+    width: 100%;
+    height: 100%;
+     border: none;
+    border-radius: 40px;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(225, 225, 225, 0.2);
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+    font-size: 16px;
+}
+
+.form-group input::placeholder{
+    color: #fff;
+    
+}
+.form-group i{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    
+    font-size: 20px;
+    transform: translateY(-50%);
+    
+}
+
+.container .upload-btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container .alrdy-acc{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.alrdy-acc p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.alrdy-acc p a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+/* Add this to both signin.css and signup.css */
+.flash-messages {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.alert {
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alert-success {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #27ae60;
+    border: 1px solid #27ae60;
+}
+
+.alert-error {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.alert i {
+    margin-right: 10px;
+}
+
+/* Notification Styles */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.notification {
+    position: relative;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slideIn 0.5s forwards, fadeOut 0.5s forwards 4.5s;
+}
+
+.notification i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.notification-success {
+    background-color: #27ae60;
+}
+
+.notification-error {
+    background-color: #e74c3c;
+}
+
+.notification-close {
+    margin-left: auto;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}

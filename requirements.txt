@@ -1,0 +1,10 @@
+Flask
+Flask-SQLAlchemy
+Flask-WTF
+python-dotenv
+tensorflow
+numpy
+Pillow
+twilio
+geopy
+email-validator

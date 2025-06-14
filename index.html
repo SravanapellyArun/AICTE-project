@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Track Fault Detection</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Modern Navbar -->
+    <nav class="modern-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-train"></i>
+                <span>RailTrack AI</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#contact-section"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#help-section"><i class="fas fa-question-circle"></i> Help</a></li>
+                <li class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>{{ username }}</span>
+                    <a href="{{ url_for('logout') }}" class="logout-btn"><i class="fas fa-sign-out-alt"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="modern-header">
+            <h1>Railway Track Inspector</h1>
+            <p>Upload track images for AI-powered defect detection</p>
+        </header>
+        
+        <div class="upload-section modern-card">
+            <h2><i class="fas fa-search"></i> Analyze Railway Track</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <div class="file-input">
+                    <label for="file" class="file-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Choose track image...</span>
+                    </label>
+                    <input type="file" name="file" id="file" accept="image/*" required>
+                </div>
+                <div class="phone-input">
+                    
+                    <input type="tel" name="phone" id="phone" 
+                           placeholder="Enter phone for SMS alerts (optional)">
+                </div>
+                <img id="preview-image" class="preview-image" alt="Image preview">
+                <button type="submit" class="upload-btn modern-btn">
+                    <i class="fas fa-magic"></i> Analyze Track
+                </button>
+            </form>
+        </div>
+
+        <div class="loader" id="loader"></div>
+        
+        <div class="results-section modern-card" id="results-section" style="display: none;">
+            <h2><i class="fas fa-chart-bar"></i> Analysis Results</h2>
+            <div id="result"></div>
+            
+            <div class="map-container" id="map-container">
+                <h3><i class="fas fa-map-marker-alt"></i> Detected Location</h3>
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact-section" class="modern-card contact-section">
+            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone Support</h3>
+                    <p>+91 000000000</p>
+                    <p>24/7 emergency line available</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>support@jits.com</p>
+                    <p>Response within 24 hours</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p>Angadi Bazar</p>
+                    <p>jagtial</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Section -->
+        <section id="help-section" class="modern-card help-section">
+            <h2><i class="fas fa-question-circle"></i> Help & FAQ</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How accurate is the detection system?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our AI system has a 98.7% accuracy rate in detecting common rail faults when provided with clear images taken in daylight conditions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What image formats are supported?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We support JPG, PNG, and WEBP formats. For best results, use high-resolution images (minimum 1920x1080).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I get SMS alerts?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simply provide your mobile number during upload. You'll receive immediate notifications when critical faults are detected.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fas fa-train"></i>
+                <span>RailTrack AI</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#contact-section">Contact</a>
+                <a href="#help-section">Help Center</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 RailTrack AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
